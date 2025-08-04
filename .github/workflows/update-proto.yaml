@@ -1,0 +1,34 @@
+on:
+  repository_dispatch:
+    types: [ proto-schema-updated ]
+
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: "start"
+        run: echo "proto moved to ${{ github.event.client_payload.version }}"
+
+      - uses: actions/checkout@v4
+
+      - name: Clone contracts repo
+        run: |
+          git clone --depth=1 \
+            --branch "${{ github.event.client_payload.version }}" \
+            https://x-access-token:${{ secrets.K2_PAT }}@github.com/noxhalley/contracts.git proto
+
+      - name: Setup Buf
+        run: |
+          curl -sSL https://github.com/bufbuild/buf/releases/latest/download/buf-Linux-x86_64 -o /usr/local/bin/buf && chmod +x /usr/local/bin/buf
+
+      - name: Generate code Java
+        run: buf generate
+
+      - name: Commit and push changes
+        run: ./scripts/push.sh
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+          GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
