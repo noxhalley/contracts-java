@@ -47,6 +47,18 @@ public final class BookOuterClass {
      */
     com.google.protobuf.ByteString
         getNameBytes();
+
+    /**
+     * <code>string publisher = 3 [json_name = "publisher"];</code>
+     * @return The publisher.
+     */
+    java.lang.String getPublisher();
+    /**
+     * <code>string publisher = 3 [json_name = "publisher"];</code>
+     * @return The bytes for publisher.
+     */
+    com.google.protobuf.ByteString
+        getPublisherBytes();
   }
   /**
    * Protobuf type {@code book.v1.Book}
@@ -71,6 +83,7 @@ public final class BookOuterClass {
     }
     private Book() {
       name_ = "";
+      publisher_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -136,6 +149,45 @@ public final class BookOuterClass {
       }
     }
 
+    public static final int PUBLISHER_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object publisher_ = "";
+    /**
+     * <code>string publisher = 3 [json_name = "publisher"];</code>
+     * @return The publisher.
+     */
+    @java.lang.Override
+    public java.lang.String getPublisher() {
+      java.lang.Object ref = publisher_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        publisher_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string publisher = 3 [json_name = "publisher"];</code>
+     * @return The bytes for publisher.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPublisherBytes() {
+      java.lang.Object ref = publisher_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        publisher_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -156,6 +208,9 @@ public final class BookOuterClass {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 2, name_);
       }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(publisher_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, publisher_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -171,6 +226,9 @@ public final class BookOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(2, name_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(publisher_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, publisher_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -191,6 +249,8 @@ public final class BookOuterClass {
           != other.getId()) return false;
       if (!getName()
           .equals(other.getName())) return false;
+      if (!getPublisher()
+          .equals(other.getPublisher())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -206,6 +266,8 @@ public final class BookOuterClass {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + PUBLISHER_FIELD_NUMBER;
+      hash = (53 * hash) + getPublisher().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -339,6 +401,7 @@ public final class BookOuterClass {
         bitField0_ = 0;
         id_ = 0;
         name_ = "";
+        publisher_ = "";
         return this;
       }
 
@@ -378,6 +441,9 @@ public final class BookOuterClass {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.name_ = name_;
         }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.publisher_ = publisher_;
+        }
       }
 
       @java.lang.Override
@@ -398,6 +464,11 @@ public final class BookOuterClass {
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getPublisher().isEmpty()) {
+          publisher_ = other.publisher_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -436,6 +507,11 @@ public final class BookOuterClass {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
+              case 26: {
+                publisher_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -553,6 +629,78 @@ public final class BookOuterClass {
         checkByteStringIsUtf8(value);
         name_ = value;
         bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object publisher_ = "";
+      /**
+       * <code>string publisher = 3 [json_name = "publisher"];</code>
+       * @return The publisher.
+       */
+      public java.lang.String getPublisher() {
+        java.lang.Object ref = publisher_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          publisher_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string publisher = 3 [json_name = "publisher"];</code>
+       * @return The bytes for publisher.
+       */
+      public com.google.protobuf.ByteString
+          getPublisherBytes() {
+        java.lang.Object ref = publisher_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          publisher_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string publisher = 3 [json_name = "publisher"];</code>
+       * @param value The publisher to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPublisher(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        publisher_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string publisher = 3 [json_name = "publisher"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPublisher() {
+        publisher_ = getDefaultInstance().getPublisher();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string publisher = 3 [json_name = "publisher"];</code>
+       * @param value The bytes for publisher to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPublisherBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        publisher_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2382,18 +2530,19 @@ public final class BookOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\022book/v1/book.proto\022\007book.v1\032\033google/pr" +
-      "otobuf/empty.proto\"*\n\004Book\022\016\n\002id\030\001 \001(\005R\002" +
-      "id\022\022\n\004name\030\002 \001(\tR\004name\" \n\016GetBookRequest" +
-      "\022\016\n\002id\030\001 \001(\005R\002id\"4\n\017GetBookResponse\022!\n\004b" +
-      "ook\030\001 \001(\0132\r.book.v1.BookR\004book\"8\n\021ListBo" +
-      "oksResponse\022#\n\005books\030\001 \003(\0132\r.book.v1.Boo" +
-      "kR\005books2\220\001\n\013BookService\022>\n\007GetBook\022\027.bo" +
-      "ok.v1.GetBookRequest\032\030.book.v1.GetBookRe" +
-      "sponse\"\000\022A\n\tListBooks\022\026.google.protobuf." +
-      "Empty\032\032.book.v1.ListBooksResponse\"\000BW\n\037o" +
-      "rg.noxhalley.contracts.book.v1Z4github.c" +
-      "om/noxhalley/contracts/gen/go/book/v1;bo" +
-      "okv1b\006proto3"
+      "otobuf/empty.proto\"H\n\004Book\022\016\n\002id\030\001 \001(\005R\002" +
+      "id\022\022\n\004name\030\002 \001(\tR\004name\022\034\n\tpublisher\030\003 \001(" +
+      "\tR\tpublisher\" \n\016GetBookRequest\022\016\n\002id\030\001 \001" +
+      "(\005R\002id\"4\n\017GetBookResponse\022!\n\004book\030\001 \001(\0132" +
+      "\r.book.v1.BookR\004book\"8\n\021ListBooksRespons" +
+      "e\022#\n\005books\030\001 \003(\0132\r.book.v1.BookR\005books2\220" +
+      "\001\n\013BookService\022>\n\007GetBook\022\027.book.v1.GetB" +
+      "ookRequest\032\030.book.v1.GetBookResponse\"\000\022A" +
+      "\n\tListBooks\022\026.google.protobuf.Empty\032\032.bo" +
+      "ok.v1.ListBooksResponse\"\000BW\n\037org.noxhall" +
+      "ey.contracts.book.v1Z4github.com/noxhall" +
+      "ey/contracts/gen/go/book/v1;bookv1b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2405,7 +2554,7 @@ public final class BookOuterClass {
     internal_static_book_v1_Book_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_book_v1_Book_descriptor,
-        new java.lang.String[] { "Id", "Name", });
+        new java.lang.String[] { "Id", "Name", "Publisher", });
     internal_static_book_v1_GetBookRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_book_v1_GetBookRequest_fieldAccessorTable = new
